@@ -42,7 +42,7 @@ pipeline {
             when {
                 branch 'master'
             }
-            sh 'echo Build: $BUILD_NUMBER'
+            sh "echo Build: ${env.BUILD_NUMBER}"
             steps {
                 script {
                    env.requestBody = '{"zoneId":1,"instance":{"name":"GPUNSTAL","cloud":"Pietro Local VMWare","site":{"id":1},"type":"ts","instanceType":{"code":"ts"},"instanceContext":"dev","layout":{"id":1202,"code":"760ffff8-d86b-4118-8c3f-8de1c70d90e1"},"plan":{"id":116,"code":"container-256","name":"256MB Memory, 3GB Storage"}},"config":{"resourcePoolId":15,"poolProviderType":"kubernetes","customOptions":{"f_tsver":"10"},"createUser":true},"volumes":[{"id":-1,"rootVolume":true,"name":"root","size":3,"sizeId":null,"storageType":null,"datastoreId":12}],"ports":[{"name":"HTTP","port":31443,"lb":"HTTP"}]}'
